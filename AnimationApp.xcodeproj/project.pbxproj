@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4A2F3322B644D12005E1ACA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C4C34FD02B630AC50082904B /* DataStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C4C34FA52B62FD3F0082904B = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +70,7 @@
 		C4C34FB02B62FD3F0082904B /* AnimationApp */ = {
 			isa = PBXGroup;
 			children = (
+				C4A2F3322B644D12005E1ACA /* Services */,
 				C4C34FC82B62FDF80082904B /* ViewControllers */,
 				C4C34FC72B62FDBA0082904B /* Storyboards */,
 				C4C34FCB2B62FE730082904B /* Model */,
@@ -110,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				C4C34FC92B62FE580082904B /* Animation.swift */,
-				C4C34FD02B630AC50082904B /* DataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

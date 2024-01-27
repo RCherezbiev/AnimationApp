@@ -8,21 +8,19 @@
 import Foundation
 
 struct Animation {
-    var title: String
+    var preset: String
     var curve: String
-    
-    var force: Double
-    var delay: Double
-    var duration: Double
-    
+    var force: CGFloat
+    var duration: CGFloat
+    var delay: CGFloat
     
     static func getValues() -> Animation {
         Animation(
-            title: DataStore().getRandomAnimation(),
-            curve: DataStore().getRandomCurve(),
-            force: (DataStore().force * 100.0).rounded() / 100.0,
-            delay: (DataStore().delay * 100.0).rounded() / 100.0,
-            duration: (DataStore().duration * 100.0).rounded() / 100.0
+            preset: DataStore.shared.animationPreset.randomElement()?.rawValue ?? "",
+            curve: DataStore.shared.animationCurve.randomElement()?.rawValue ?? "",
+            force: CGFloat.random(in: 0.1...5.0),
+            duration: CGFloat.random(in: 0.5...5.0),
+            delay: CGFloat.random(in: 0.1...5.0)
         )
     }
 }

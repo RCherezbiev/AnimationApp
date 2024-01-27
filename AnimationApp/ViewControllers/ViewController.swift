@@ -8,7 +8,7 @@
 import UIKit
 import SpringAnimation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet var animationView: SpringView!
     
@@ -20,48 +20,38 @@ class ViewController: UIViewController {
     
     @IBOutlet var runAnimateButton: UIButton!
     
-    private var startAnimation = true
+    private var randomAnimation = Animation.getValues()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presetLabel.text = "squeezeUp"
-        curveLabel.text = "easeOut"
-        forceLabel.text = "1.24"
-        durationLabel.text = "0.82"
-        delayLabel.text = "0.30"
+        getRandomValues()
     }
 
     @IBAction func runAnimateAction() {
-        if startAnimation {
-            updateAnimationValues()
-            animationView.animate()
-            runAnimateButton.setTitle("Run \(presetLabel.text ?? "")", for: .normal)
-            startAnimation.toggle()
-        } else {
-            getRandomValues()
-            updateAnimationValues()
-            animationView.animate()
-            runAnimateButton.setTitle("Run \(presetLabel.text ?? "")", for: .normal)
-
-        }
+        getRandomValues()
+        updateAnimationValues()
+        animationView.animate()
         
+        randomAnimation = Animation.getValues()
+        runAnimateButton.setTitle("Run \(randomAnimation.preset)", for: .normal)
     }
     
     func getRandomValues() {
-        presetLabel.text = Animation.getValues().title
-        curveLabel.text = Animation.getValues().curve
-        forceLabel.text = String(Animation.getValues().force)
-        durationLabel.text = String(Animation.getValues().duration)
-        delayLabel.text = String(Animation.getValues().delay)
+        presetLabel.text = randomAnimation.preset
+        curveLabel.text = randomAnimation.curve
+        forceLabel.text = String(format: "%.2f", randomAnimation.force)
+        durationLabel.text = String(format: "%.2f", randomAnimation.duration)
+        delayLabel.text = String(format: "%.2f", randomAnimation.delay)
         
     }
     
     func updateAnimationValues() {
         animationView.animation = presetLabel.text ?? ""
         animationView.curve = curveLabel.text ?? ""
-        animationView.force = CGFloat(Double(forceLabel.text ?? "0") ?? 0.0)
-        animationView.duration = CGFloat(Double(durationLabel.text ?? "0") ?? 0.0)
-        animationView.delay = CGFloat(Double(delayLabel.text ?? "0") ?? 0.0)
+        animationView.force = Double(forceLabel.text ?? "0") ?? 0.0
+        animationView.duration = Double(durationLabel.text ?? "0") ?? 0.0
+        animationView.delay = Double(delayLabel.text ?? "0") ?? 0.0
         
     }
 }
