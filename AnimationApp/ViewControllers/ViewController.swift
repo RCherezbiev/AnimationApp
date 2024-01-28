@@ -22,7 +22,6 @@ final class ViewController: UIViewController {
     
     private var randomAnimation = Animation.getValues()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         getRandomValues()
@@ -43,7 +42,6 @@ final class ViewController: UIViewController {
         forceLabel.text = String(format: "%.2f", randomAnimation.force)
         durationLabel.text = String(format: "%.2f", randomAnimation.duration)
         delayLabel.text = String(format: "%.2f", randomAnimation.delay)
-        
     }
     
     func updateAnimationValues() {
@@ -52,7 +50,6 @@ final class ViewController: UIViewController {
         animationView.force = Double(forceLabel.text ?? "0") ?? 0.0
         animationView.duration = Double(durationLabel.text ?? "0") ?? 0.0
         animationView.delay = Double(delayLabel.text ?? "0") ?? 0.0
-        
     }
 }
 
