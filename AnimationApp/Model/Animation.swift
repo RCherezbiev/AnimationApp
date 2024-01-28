@@ -8,11 +8,11 @@
 import Foundation
 
 struct Animation {
-    var preset: String
-    var curve: String
-    var force: CGFloat
-    var duration: CGFloat
-    var delay: CGFloat
+    let preset: String
+    let curve: String
+    let force: Double
+    let duration: Double
+    let delay: Double
     
     static func getValues() -> Animation {
         Animation(

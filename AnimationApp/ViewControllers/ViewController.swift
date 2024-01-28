@@ -36,7 +36,7 @@ final class ViewController: UIViewController {
         runAnimateButton.setTitle("Run \(randomAnimation.preset)", for: .normal)
     }
     
-    func getRandomValues() {
+    private func getRandomValues() {
         presetLabel.text = randomAnimation.preset
         curveLabel.text = randomAnimation.curve
         forceLabel.text = String(format: "%.2f", randomAnimation.force)
@@ -44,7 +44,7 @@ final class ViewController: UIViewController {
         delayLabel.text = String(format: "%.2f", randomAnimation.delay)
     }
     
-    func updateAnimationValues() {
+    private func updateAnimationValues() {
         animationView.animation = presetLabel.text ?? ""
         animationView.curve = curveLabel.text ?? ""
         animationView.force = Double(forceLabel.text ?? "0") ?? 0.0
